@@ -16,4 +16,7 @@
     * [dockerfle](docker/dockerfile.md)
     * [Dockerfile构建Java程序](docker/Dockerfile构建Java程序.md)
     * [自动清理日志](docker/自动清理日志.md)
-
+  
+* 🍑mysql（mysql相关）
+  * 安装mysql
+    * [mysql安装](mysql/下载安装/MySQL下载和安装.md)
