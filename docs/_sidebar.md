@@ -6,6 +6,8 @@
     * [linux下安装Java环境](linux/java安装.md)
   * Linux使用
     * [linux使用](linux/linux使用.md)
+    * [修改ip](linux/修改ip.md)
+    * [centos7开放端口](linux/开放端口.md)
 * 🍑docker（docker相关）
   * 安装docker
     * [docker安装](docker/安装docker.md)
