@@ -3,11 +3,11 @@
   * 下载与安装
     * [下载linux](linux/linux下载.md)
     * [下载linux](linux/下载与安装(expect).md)
+    * [修改ip](linux/修改ip.md)
+    * [centos7开放端口](linux/开放端口.md)
     * [linux下安装Java环境](linux/java安装.md)
   * Linux使用
     * [linux使用](linux/linux使用.md)
-    * [修改ip](linux/修改ip.md)
-    * [centos7开放端口](linux/开放端口.md)
 * 🍑docker（docker相关）
   * 安装docker
     * [docker安装](docker/安装docker.md)
@@ -18,6 +18,11 @@
     * [dockerfle](docker/dockerfile.md)
     * [Dockerfile构建Java程序](docker/Dockerfile构建Java程序.md)
     * [自动清理日志](docker/自动清理日志.md)
+  * docker安装常用软件
+    * [docker安装nginx目录挂载](docker/安装常用软件/docker安装nginx目录挂载.md)
+    * [docker安装mysq](docker/安装常用软件/docker安装mysql.md)
+    * [docker安装redis](docker/安装常用软件/docker安装redis.md)
+    * [docker安装rabbitmq](docker/安装常用软件/docker安装rabbitmq.md)
   
 * 🍑mysql（mysql相关）
   * 安装mysql
