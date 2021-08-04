@@ -56,146 +56,40 @@ service mysqld status
 grep "A temporary password" /var/log/mysqld.log
 ```
 
-## 2.安装包安装方式（相对复杂）
+##### 6.修改root用户密码
 
-##### 1.去官网下载（linux通用版）
-
-<img src="MySQL下载和安装img\下载mysqlLinux包.png" alt="image-20210715142013957" style="zoom:50%;" /> 
-
-
-
-##### 2.解压
-
-```bash
-tar -xvf mysql-8.0.24-linux-glibc2.12-i686.tar.xz 
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
 ```
 
-##### 3.移动并且改名(注意：软件安装一般放在usr/local/目录下)
+提示**密码不满足密码验证策略**
 
-```bash
-mv mysql-8.0.24-linux-glibc2.12-i686 /usr/local/mysql
+降低密码校验等级
+
+**查看原来的密码校验**
+
+```mysql
+SHOW VARIABLES LIKE 'validate_password.%';
 ```
 
-##### 4.创建mysql用户组、mysql用户
+提示不让看
 
-```bash
-#创建用户组
-groupadd mysql
-#创建 用户并且指定用户组（[-r表示是新用户]  [-g 用户组]）
-useradd -r -g mysql mysql
+```mysql
+#`validate_password.length` 是密码的最小长度，默认是8，我们把它改成4
+set global validate_password.length=4;
+#`validate_password.policy` 验证密码的复杂程度，我们把它改成0
+set global validate_password.policy=0;
+#`validate_password.check_user_name` 用户名检查，用户名和密码不能相同，我们也把它去掉
+set global validate_password.check_user_name=off;
 ```
 
-##### 5.在/usr/local/mysql目录下创建两个目录
+现在再执行修改密码的命令：
 
-(data:mysql数据库文件；tmp:mysql连接socket)
-
-```bash
-mkdir data
-mkdir tmp
-```
-
-##### 6.初始化数据库
-
-```bash
-bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --basedir=/usr/local/mysql
-```
-
-可能出现的问题
-
-mysql官网给的提示
-
-![image-20210715152321024](C:\Users\32176\Desktop\expect项目总结\mysql\1.下载安装\MySQL下载和安装img\mysql给的提示.png)
-
-```bash
-yum install libaio
-```
-
-```bash
-yum install glibc.i686
-yum install libgcc.i686
-```
-
-```bash
-#这个都下载一下
-yum -y install numactl
-yum install libnuma
-yum install ld-linux.so.2
-yum install libaio.so.1
-yum install libnuma.so.1
-yum install libstdc++.so.6
-yum install libncurses.so.5
-yum install libtinfo.so.5io
-yum clean all
-yum makecacheast
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
 ```
 
 
-
-缺少libstdc++.so.6
-
-1.找出下载源
-
-```bash
-yum whatprovides libstdc++.so.6
-```
-
-![image-20210715152122948](MySQL下载和安装img\安装过程的问题6.png) 
-
-2.下载
-
-```bash
-yum -y install libstdc++-4.8.5-44.el7.i686 : GNU Standard C++ Library
-```
-
-##### 6.再执行初始化数据库
-
-```bash
-bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --basedir=/usr/local/mysql
-```
-
-
-
-![image-20210715153004258](MySQL下载和安装img\linux初始化数据库后.png)
-
-密码csi<(pa;F2tm
-
-##### 7.将mysql及其下所有的目录所有者和组均设为mysql
-
-```bash
- chown  -R mysql:mysql /usr/local/mysql/
-```
-
-
-
-修改/etc/my.cnf配置文件
-
-```bash
-[mysqld]
-datadir=/usr/local/mysql/data
-socket=/usr/local/mysql/tmp/mysql.sock
-user=mysql
-# Disabling symbolic-links is recommended to prevent assorted security risks
-symbolic-links=0
-# Settings user and group are ignored when systemd is used.
-# If you need to run mysqld under a different user or group,
-# customize your systemd unit file for mariadb according to the
-# instructions in http://fedoraproject.org/wiki/Systemd
-
-[mysqld_safe]
-log-error=/var/log/mysql/mydqld.log
-pid-file=/var/run/mysql/mydqld.pid
-
-[client]
-socket=/usr/local/mysql/tmp/mysql.scok
-
-#
-# include all files from the config directory
-#
-!includedir /etc/my.cnf.d
-
-```
-
-##### 8.软后放弃了
 
 ## 二、设置远程连接
 

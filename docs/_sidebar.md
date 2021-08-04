@@ -27,3 +27,7 @@
 * 🍑mysql（mysql相关）
   * 安装mysql
     * [mysql安装](mysql/下载安装/MySQL下载和安装.md)
+
+* 🍑nginx（nginx相关）
+  * nginx配置
+    * [nginx配置清单](nginx/nginx配置清单.md)
