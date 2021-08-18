@@ -8,6 +8,7 @@
     * [linux下安装Java环境](linux/java安装.md)
   * Linux使用
     * [linux使用](linux/linux使用.md)
+    * [查看磁盘空间cpu和内存使用情况](linux/查看磁盘空间cpu和内存情况.md)
 * 🍑docker（docker相关）
   * 安装docker
     * [docker安装](docker/安装docker.md)
@@ -15,6 +16,7 @@
     * [docker容器开机自动启动](docker/docker容器开机自动启动.md)
     * [docker](docker/docker(狂神).md)
     * [docker命令](docker/docker命令(知乎).md)
+    * [run命令](docker/run命令.md)
     * [dockerfle](docker/dockerfile.md)
     * [Dockerfile构建Java程序](docker/Dockerfile构建Java程序.md)
     * [自动清理日志](docker/自动清理日志.md)

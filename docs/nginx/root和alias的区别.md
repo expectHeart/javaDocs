@@ -23,3 +23,4 @@ root与alias主要区别在于nginx如何解释location后面的uri，这会使�
 alias是一个目录别名的定义，root则是最上层目录的定义。
 
 还有一个重要的区别是alias后面必须要用“/”结束，否则会找不到文件的。。。而root则可有可无~~
+
