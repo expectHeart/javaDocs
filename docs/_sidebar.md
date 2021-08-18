@@ -23,11 +23,15 @@
     * [docker安装mysq](docker/安装常用软件/docker安装mysql.md)
     * [docker安装redis](docker/安装常用软件/docker安装redis.md)
     * [docker安装rabbitmq](docker/安装常用软件/docker安装rabbitmq.md)
-  
 * 🍑mysql（mysql相关）
   * 安装mysql
     * [mysql安装](mysql/下载安装/MySQL下载和安装.md)
-
 * 🍑nginx（nginx相关）
   * nginx配置
+    * [nginx配置详情](nginx/nginx配置详情.md)
+    * [反向代理配置](nginx/反向代理配置.md)
     * [nginx配置清单](nginx/nginx配置清单.md)
+    * [nginx拿到真实域名和ip](nginx/nginx拿到真实域名和ip.md)
+    * [nginx请求超时问题](nginx/nginx请求超时问题.md)
+    * [root和alias的区别](nginx/root和alias的区别.md)
+
