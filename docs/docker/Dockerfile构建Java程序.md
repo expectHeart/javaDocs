@@ -9,18 +9,16 @@ Dockerfile
 ```tex
 FROM centos
 MAINTAINER expect< 321766987@qq. com>
-COPY readme.txt /usr/local/readme.txt
+
 ADD jdk-11.0.11_linux-x64_bin.tar.gz /usr/local/
+
 RUN yum -y install vim
 RUN cd /opt
 RUN mkdir java
 ENV MYPATH /opt/java
 WORKDIR $MYPATH
 
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8
-
+ENV TZ=Asia/Shanghai
 ENV JAVA_HOME /usr/local/jdk-11.0.11
 ENV CLASSPATH $JAVA_HOME/lib/dt.jar :$JAVA_ HOME/lib/tools.jar
 ENV PATH $PATH:$JAVA_HOME/bin
